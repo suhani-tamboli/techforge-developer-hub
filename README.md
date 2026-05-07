@@ -18,4 +18,4 @@
     <li>Bootstrap</li>
 </ul>
 
-<h2>Suhani Tamboli</h2>
+<h3>Suhani Tamboli</h3>
