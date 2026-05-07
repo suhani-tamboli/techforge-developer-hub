@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CodeCraft Studio</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <!--bootsrtap inbulit css  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstaro icon cdn  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        header {
+            background-color: black;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* for h1 tag colorful text */
+        .gradient-text {
+            background: linear-gradient(50deg, red, orange, green);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sub-content button {
+            height: 60px;
+            border: none;
+            color: antiquewhite;
+        }
+
+        /* for active class green line */
+        .active-class.active {
+            background: linear-gradient(90deg, #56affd, #7becf1);
+            border-top: 2px solid whitesmoke;
+            color: black;
+        }
+
+        .active-class:hover {
+            color: black;
+            background-color: rgb(247, 238, 228);
+        }
+
+        /* Descendant Selector */
+        main div ul li span {
+            padding: 10px 10px;
+            border-radius: 60px;
+            background-color: rgb(144, 217, 241);
+            border: 2px solid rgb(77, 203, 245);
+            color: rgb(3, 90, 118);
+        }
+
+        /* Direct Child Selector */
+        main>div>p {
+            color: rgb(9, 139, 183);
+        }
+
+        main>div>h1 {
+            color: antiquewhite;
+            font-size: 70px;
+            font-weight: bold;
+        }
+
+        /* Bounce effect for TechForge Developer Hub */
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+
+        .skills {
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: antiquewhite;
+        }
+
+        .container-1 {
+            background: linear-gradient(to left, rgba(248, 202, 202, 0.849), rgba(202, 202, 245, 0.854));
+            box-shadow: 0px 0px 1px 1px beige;
+        }
+
+        .card {
+            width: 250px;
+            border-radius: 10px;
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+            box-shadow: 0.3s ease;
+        }
+
+        /* hover effect WITHOUT scaling */
+        .card:hover {
+            animation-play-state: paused;
+            transform: translateY(-5px);
+            /* only move up, no resizing */
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Center the list and the buttons inside the card */
+        section ol {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* This centers the items horizontally */
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        section ol li {
+            display: flex;
+            flex: 0 0 45%;
+            /* Ensures two buttons per row where possible */
+        }
+
+        section ol li button {
+            border-radius: 9px;
+            margin: 5px;
+            width: 100%;
+            /* Makes buttons equal width within their container */
+            white-space: nowrap;
+        }
+
+        .hover:hover {
+            border: 1px solid bisque;
+            background-color: burlywood;
+            color: black;
+        }
+
+        #backToTop {
+            position: fixed;
+            /* Keeps button fixed */
+            bottom: 20px;
+            /* Distance from bottom */
+            right: 20px;
+            /* Distance from right */
+            z-index: 1000;
+            /* Keeps it above all elements */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 12px 15px;
+            font-size: 18px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .contect1 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ol {
+            list-style-type: none;
+        }
+
+        ol li a {
+            text-decoration: none;
+            color: #1e8afdb8;
+        }
+
+        .footer{
+            background-color: black;
+            color: rgba(212, 229, 245, 0.749);
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="fs-2 ms-5 fw-bold gradient-text">CodeCraft Studio</h1>
+            <div class="sub-content">
+                <button class="btn btn-outline-dark active-class active" id="skillsBtn">SKILLS</button>
+                <button class="btn btn-outline-dark active-class" id="projectBtn">PROJECTS</button>
+                <button class="btn btn-outline-dark active-class" id="ExperienceBtn">EXPERIENCE</button>
+                <button class="btn btn-outline-dark active-class" id="contactBtn">CONTACT</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="bg-dark p-5">
+        <!-- About -->
+        <div>
+            <ul class="mt-4">
+                <li style="list-style-type: none;"><span>● Available For Opportunities</span></li>
+            </ul>
+            <p class="ms-4 p-2 fs-5">JAVA FULL STACK DEVELOPMENT &nbsp;&nbsp;|&nbsp;&nbsp; FRONT-END
+                &nbsp;&nbsp;|&nbsp;&nbsp; BACK-END &nbsp;&nbsp;|&nbsp;&nbsp; WEB DEVELOPER </p>
+            <h1 class="ms-4 gradient-text bounce">
+                TechForge <br>
+                Developer <br>
+                Hub
+            </h1>
+            <p class="ms-4 text-secondary">
+                I build modern, responsive web applications using JavaScript and Java, <br>
+                focusing on clean code, performance, and scalable architecture. <br>
+                Passionate full-stack developer creating efficient and user-friendly <br>
+                digital solutions with expertise in frontend design and backend development.
+            </p>
+            <button class="btn btn-outline-info ms-4 active-class" id="project_short_btn">MY PROJECTS</button>
+            <button class="btn btn-outline-info ms-5 active-class" id="contact_short">GET IN TOUCH</button>
+        </div>
+        <button id="backToTop" onclick="scrollToTop()">↑</button>
+
+        <!-- SKILLS -->
+        <div class="p-5 skills" id="skills">
+            <p class="text-secondary">// SKILLS</p>
+            <h2 class="fw-bold">Languages That I Learned.</h2>
+            <!-- Cards -->
+            <div class="container mt-5">
+                <div class="row g-4">
+                    <!-- Card 1 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><i class="bi bi-globe"></i>
+                                    <p class="mt-2">HTML & CSS</p>
+                                </h5>
+                                <p class="card-text">Modern web design using semantic markup, responsive design
+                                    techniques, Flexbox & Grid systems, animations, and accessibility best practices.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><i class="bi bi-lightning-charge-fill"></i>
+                                    <p class="mt-2">JavaScript</p>
+                                </h5>
+                                <p class="card-text">Proficient in JavaScript for building interactive web applications.
+                                    Skilled in handling APIs, events, and dynamic UI updates with clean and optimized
+                                    code practices.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><i class="bi bi-bootstrap"></i>
+                                    <p class="mt-2">Bootstrap</p>
+                                </h5>
+                                <p class="card-text">Proficient in Bootstrap framework to design visually appealing and
+                                    user-friendly interfaces with flexible and scalable layouts.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><i class="bi bi-dropbox"></i>
+                                    <p class="mt-2">jQuery</p>
+                                </h5>
+                                <p class="card-text">Skilled in jQuery for simplifying JavaScript tasks, including DOM
+                                    manipulation, event handling, and creating interactive web features efficiently.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><i class="bi bi-boxes"></i>
+                                    <p class="mt-2">ReactJS</p>
+                                </h5>
+                                <p class="card-text">Proficient in ReactJS for developing interactive user interfaces
+                                    with component-based architecture and clean code structure.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><i class="bi bi-filetype-java"></i>
+                                    <p class="mt-2">Java Backend</p>
+                                </h5>
+                                <p class="card-text">Strong knowledge of Java for developing secure, scalable, and
+                                    high-performance backend applications using hibernte, springBoot & OOP principles.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><i class="bi bi-database"></i>
+                                    <p class="mt-2">Database</p>
+                                </h5>
+                                <p class="card-text">Proficient in MySQL and Oracle for handling large datasets,
+                                    database optimization, and secure data management in applications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><i class="bi bi-tools"></i>
+                                    <p class="mt-2">Tools that I Learned.</p>
+                                </h5>
+                                <p class="card-text">
+                                <ul>
+                                    <li>Visual Studio Code</li>
+                                    <li>NetBeans</li>
+                                    <li>IntelliJ IDEA</li>
+                                    <li>Eclipse</li>
+                                    <li>MySQL</li>
+                                    <li>Oracle</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="p-5" id="projects">
+            <p class="text-secondary">// PROJECTS</p>
+            <h2 class="fw-bold">I turn ideas into functional websites.</h2>
+            <!-- Cards -->
+            <div class="container mt-5">
+                <div class="row g-4">
+                    <!-- Card 1 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">
+                                    <p class="mt-2"><i class="bi bi-projector-fill"></i> Employee Management System</p>
+                                </h5>
+                                <p class="card-text mt-5">EMS is a database-driven application designed to organize and
+                                    maintain employee details with features like adding, editing, searching, and
+                                    removing records.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">
+                                    <p class="mt-2"><i class="bi bi-projector-fill"></i> Invoice Processing System</p>
+                                </h5>
+                                <p class="card-text mt-5">An Invoice Processing System manages invoice verification,
+                                    approvals, payments, and record storage in an organized workflow.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">
+                                    <p class="mt-2"><i class="bi bi-projector-fill"></i> Notes App (With Live Working)</p>
+                                </h5>
+                                <p class="card-text mt-5">A Notes App helps users manage daily tasks, ideas, and important
+                                    information in one organized place.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">
+                                    <p class="mt-2"><i class="bi bi-projector-fill"></i> Front-End Tutorial</p>
+                                </h5>
+                                <p class="card-text">
+                                <section>
+                                    <ol>
+                                        <li><button class="btn btn-outline-primary hover">HTML</button></li>
+                                        <li><button class="btn btn-outline-primary hover">CSS</button></li>
+                                        <li><button class="btn btn-outline-primary hover">JavaScript</button></li>
+                                        <li><button class="btn btn-outline-primary hover">jQuery</button></li>
+                                        <li><button class="btn btn-outline-primary hover">Bootstrap</button></li>
+                                        <li><button class="btn btn-outline-primary hover">ReactJS</button></li>
+                                    </ol>
+                                </section>
+                                <div class="d-flex justify-content-center mt-2">
+                                    <a href="https://github.com/suhani-tamboli?tab=projects" class="btn btn-success">For More</a>
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">
+                                    <p class="mt-2"><i class="bi bi-projector-fill"></i> Back-End Tutorials & DataBase</p>
+                                </h5>
+                                <p class="card-text">
+                                <section>
+                                    <ol>
+                                        <li><button class="btn btn-outline-primary hover">Java Basic</button></li>
+                                        <li><button class="btn btn-outline-primary hover">Servlet</button></li>
+                                        <li><button class="btn btn-outline-primary hover">Hibernate</button></li>
+                                        <li><button class="btn btn-outline-primary hover">SpringBoot</button></li>
+                                        <li><button class="btn btn-outline-primary hover">MySQL DataBase</button></li>
+                                    </ol>
+                                </section>
+                                <div class="d-flex justify-content-center mt-2">
+                                    <a href="https://github.com/suhani-tamboli?tab=projects" class="btn btn-success">For More</a>
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="p-5" id="Experience">
+            <p class="text-secondary">// EXPERIENCE</p>
+            <h2 class="fw-bold">Hands On.</h2>
+            <!-- Cards -->
+            <div class="container mt-5">
+                <div class="row g-4">
+                    <!-- Card 1 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">
+                                    <p class="mt-2">Upskills IT Training & Placement</p>
+                                </h5>
+                                <p class="card-text">I completed a 6-month Java Full Stack Development training and
+                                    placement program at Upskills IT Training & Placement. During this program, I
+                                    learned different technologies and databases and gained hands-on experience by
+                                    working on real-time projects.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">
+                                    <p class="mt-2">ReactJS</p>
+                                </h5>
+                                <p class="card-text">I completed the React JS certification from Infosys Springboard
+                                    with a duration of 27 hours and 45 minutes. During the course, I learned multiple
+                                    concepts of React JS and gained practical knowledge in front-end development.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 container-1">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">
+                                    <p class="mt-2">AI with Python</p>
+                                </h5>
+                                <p class="card-text">I completed the AI with Python certification from Infosys
+                                    Springboard with a duration of 7 hours and 21 minutes. During the course, I learned
+                                    multiple AI concepts and gained knowledge about building AI-based applications using
+                                    Python.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contect -->
+        <div class="p-5" id="contect">
+            <p class="text-secondary">// Contact</p>
+            <h2 class="fw-bold">Lets Works Together.</h2>
+        </div>
+        <!-- Two side layout -->
+        <div class="contect1 ms-5">
+            <!-- LEFT SIDE -->
+            <div class="text-secondary m-3 w-40">
+                <p>
+                    I am actively looking for full-time roles in Full Stack Development. Whether you have a job
+                    opportunity, a project idea, or just want to connect professionally, I'd be happy to hear from you.
+                </p> <br><br>
+                <ol>
+                    <li>G-Mail Id → <a href="mailto:suhanitamboli21@gmail.com">suhanitamboli21@gmail.com</a></li>
+                    <li>LinkedIn → 
+                        <a href="https://www.linkedin.com/in/suhani-tamboli-477524333" target="_blank">
+                            https://www.linkedin.com/in/suhani-tamboli
+                        </a>
+                    </li>
+                    <li>GitHub → 
+                        <a href="https://github.com/suhani-tamboli" target="_blank">
+                            https://github.com/suhani-tamboli
+                        </a>
+                    </li>
+                    <li>Netlify → 
+                        <a href="https://app.netlify.com/user/settings#profile" target="_blank">
+                            https://netlify.com/suhani-tamboli
+                        </a>
+                    </li>
+                    <li>Infosys Springboard → 
+                        <a href="https://infyspringboard.onwingspan.com/web/en/app/profile/dashboard" target="_blank">
+                            https://infyspringboard.com/suhani-tamboli
+                        </a>
+                    </li>
+                </ol>
+            </div>
+            <!-- RIGHT SIDE -->
+            <div class="text-secondary m-3 w-50">
+                <h2>Contact Form</h2>
+                <form method="POST" data-netlify="true">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Subject</label>
+                        <input type="text" class="form-control" placeholder="Enter your Subject or Role">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" rows="4" placeholder="Write message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // for active button
+        const buttons = document.querySelectorAll(".active-class");
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                //remove active class
+                buttons.forEach(btn => btn.classList.remove("active"));
+                //add active class
+                button.classList.add("active");
+            });
+        });
+
+        // for scroll the skills button
+        document.getElementById("skillsBtn").addEventListener("click", (e) => {
+            e.preventDefault();     //prevent any default jump for extra saftey
+            document.getElementById("skills").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+
+        // for scroll project button
+        document.getElementById("projectBtn").addEventListener("click", (e) => {
+            e.preventDefault();     //prevent any default jump for extra saftey
+            document.getElementById("projects").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+        //project short button
+        document.getElementById("project_short_btn").addEventListener("click", (e) => {
+            e.preventDefault();
+            document.getElementById("projects").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+
+        //back to top button
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+        const btn = document.getElementById("backToTop");
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                btn.style.display = "block";
+            }
+            else {
+                btn.style.display = "none";
+            }
+        };
+
+        // for scroll Experience button
+        document.getElementById("ExperienceBtn").addEventListener("click", (e) => {
+            e.preventDefault();     //prevent any default jump for extra saftey
+            document.getElementById("Experience").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+
+        // for scroll Contect button
+        document.getElementById("contactBtn").addEventListener("click", (e) => {
+            e.preventDefault();     //prevent any default jump for extra saftey
+            document.getElementById("contect").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+        //contect short button
+        document.getElementById("contact_short").addEventListener("click", (e) => {
+            e.preventDefault();
+            document.getElementById("contect").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+
+        //for window reload
+        window.onload = () => {
+            window.scrollTo(0, 0);
+        };
+    </script>
+
+    <footer class="footer">
+        <p class="mt-2">@ 2026 TechForge Developer Hub designed by Suhani Tamboli.All rights reserved.</p>
+        <p class="text-secondary">This page designed in HTML, CSS, Javascript & Bootstrap.</p>
+    </footer>
+</body>
+</html>
